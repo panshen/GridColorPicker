@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <declare-styleable name="GridColorPicker">
+        <attr name="gcp_row" format="integer" />
+        <attr name="gcp_showAlphaView" format="boolean" />
+        <attr name="gcp_showAlphaViewLabel" format="boolean" />
+        <attr name="gcp_alphaViewLabelColor" format="color" />
+        <attr name="gcp_alphaViewLabelText" format="string" />
+        <attr name="gcp_drawCard" format="boolean" />
+        <attr name="gcp_cardColor" format="color" />
+        <attr name="gcp_selectorColor" format="color" />
+        <attr name="gcp_colorScheme" format="reference" />
+    </declare-styleable>
+</resources>

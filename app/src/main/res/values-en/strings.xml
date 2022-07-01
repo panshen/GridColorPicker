@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GridColorPicker</string>
+    <string name="opacity">Opacity</string>
+
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="checkColorTitle">Check Color</string>
+    <string name="callbacks">Callbacks</string>
+</resources>

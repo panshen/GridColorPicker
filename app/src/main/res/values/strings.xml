@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GridColorPicker</string>
+    <string name="opacity">不透明度</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+
+    <string name="checkColorTitle">勾选颜色</string>
+    <string name="callbacks">回调</string>
+</resources>

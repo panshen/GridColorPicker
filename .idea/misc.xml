@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/ASProject/ColorPickerDemo/app/src/main/res/layout/act_view.xml" value="0.3609375" />
+        <entry key="..\:/ASProject/ColorPickerDemo/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/ASProject/ColorPickerDemo/app/src/main/res/layout/activity_main_java.xml" value="0.32563405797101447" />
+        <entry key="..\:/ASProject/ColorPickerDemo/app/src/main/res/layout/activity_view.xml" value="0.31068840579710144" />
+        <entry key="..\:/ASProject/ColorPickerDemo/app/src/main/res/layout/dialog_grid_color_picker.xml" value="0.32563405797101447" />
+        <entry key="..\:/ASProject/GridColorPicker/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/ASProject/palette/app/src/main/java/com/panshen/palette/Palette.kt" value="0.375" />
+        <entry key="..\:/ASProject/palette/app/src/main/res/drawable/aaaa.xml" value="0.254" />
+        <entry key="..\:/ASProject/palette/app/src/main/res/drawable/ic_launcher_background.xml" value="0.254" />
+        <entry key="..\:/ASProject/palette/app/src/main/res/layout/activity_grid_palette.xml" value="0.3428442028985507" />
+        <entry key="..\:/ASProject/palette/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/ASProject/palette/app/src/main/res/layout/activity_palette.xml" value="0.3428442028985507" />
+        <entry key="..\:/ASProject/palette/app/src/main/res/layout/activity_palette_standalone.xml" value="0.3428442028985507" />
+        <entry key="..\:/ASProject/palette/app/src/main/res/layout/dialog_grid_color_picker.xml" value="0.3428442028985507" />
+        <entry key="..\:/ASProject/palette/app/src/main/res/layout/layout.xml" value="0.29528985507246375" />
+        <entry key="..\:/ASProject/palette/app/src/main/res/menu/menu_main.xml" value="0.21302083333333333" />
+        <entry key="..\:/ASProject/palette/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.276" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
