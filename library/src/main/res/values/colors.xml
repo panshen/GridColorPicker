@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="c_selector">#FFFFFF</color>
-    <color name="c_bg_color">#FDFDFD</color>
-    <color name="c_alpha_label_color">#000000</color>
+    <color name="selector">#FFFFFF</color>
+    <color name="bg_color">#FDFDFD</color>
+    <color name="alpha_label_color">#000000</color>
     <color name="C_029FD6">#029FD6</color>
     <color name="C_0062FD">#0062FD</color>
     <color name="C_5023B1">#5023B1</color>

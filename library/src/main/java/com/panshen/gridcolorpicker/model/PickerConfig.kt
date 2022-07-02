@@ -28,7 +28,7 @@ data class PickerConfig(
     val showAlphaViewLabel: Boolean = true,
     val alphaViewLabelText: String = "Opacity",
     val drawCard: Boolean = true,
-    @ColorRes val cardColorRes: Int = R.color.c_bg_color,
-    @ColorRes val alphaViewLabelColorRes: Int = R.color.c_alpha_label_color,
-    @ColorRes val selectorColorRes: Int = R.color.c_selector
+    @ColorRes val cardColorRes: Int = R.color.bg_color,
+    @ColorRes val alphaViewLabelColorRes: Int = R.color.alpha_label_color,
+    @ColorRes val selectorColorRes: Int = R.color.selector
 )

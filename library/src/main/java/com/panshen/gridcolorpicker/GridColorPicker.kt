@@ -69,18 +69,18 @@ class GridColorPicker : LinearLayout, OnColorSelectListener, AlphaView.OnAlphaSe
             pickerConfig.copy(alphaViewLabelText = alphaViewLabelText)
 
         val selectorColorRes =
-            attrs.getResourceId(R.styleable.GridColorPicker_gcp_selectorColor, R.color.c_selector)
-        if (selectorColorRes != R.color.c_selector) pickerConfig =
+            attrs.getResourceId(R.styleable.GridColorPicker_gcp_selectorColor, R.color.selector)
+        if (selectorColorRes != R.color.selector) pickerConfig =
             pickerConfig.copy(selectorColorRes = selectorColorRes)
 
         val backgroundColorRes =
-            attrs.getResourceId(R.styleable.GridColorPicker_gcp_cardColor, R.color.c_bg_color)
-        if (backgroundColorRes != R.color.c_bg_color) pickerConfig =
+            attrs.getResourceId(R.styleable.GridColorPicker_gcp_cardColor, R.color.bg_color)
+        if (backgroundColorRes != R.color.bg_color) pickerConfig =
             pickerConfig.copy(cardColorRes = backgroundColorRes)
 
         val alphaViewLabelColorRes =
-            attrs.getResourceId(R.styleable.GridColorPicker_gcp_alphaViewLabelColor, R.color.c_alpha_label_color)
-        if (alphaViewLabelColorRes != R.color.c_alpha_label_color) pickerConfig =
+            attrs.getResourceId(R.styleable.GridColorPicker_gcp_alphaViewLabelColor, R.color.alpha_label_color)
+        if (alphaViewLabelColorRes != R.color.alpha_label_color) pickerConfig =
             pickerConfig.copy(alphaViewLabelColorRes = alphaViewLabelColorRes)
 
 
