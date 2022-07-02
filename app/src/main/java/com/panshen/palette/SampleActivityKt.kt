@@ -82,12 +82,6 @@ class MainActivityKt : AppCompatActivity() {
                 afterColorChanged = { color ->
                     afterColorChanged(color)
                 }
-
-//                alphaViewLabelText = resources.getString(R.string.opacity)
-//                drawCard = true
-//                cardColorRes = R.color.teal_200
-//                alphaViewEnable = false
-//                alphaViewLabelEnable = false
             }.build(this)
 
             val lp = LayoutParams(300.dp, LayoutParams.WRAP_CONTENT).also {

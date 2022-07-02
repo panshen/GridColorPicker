@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class SampleActivityJava extends AppCompatActivity {
     ActivityMainBinding binding = null;
     GridColorPicker gridColorPicker = null;
-    AlertDialog builder = null;
+    AlertDialog dialog = null;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,8 +55,8 @@ public class SampleActivityJava extends AppCompatActivity {
     }
 
     private void showDialog() {
-        if (builder == null) {
-            builder = new ColorPickerDialogBuilder(this).setCancelable(true).setPositiveButton(getResources().getString(R.string.confirm), (dialog, which) -> {
+        if (dialog == null) {
+            dialog = new ColorPickerDialogBuilder(this).setCancelable(true).setPositiveButton(getResources().getString(R.string.confirm), (dialog, which) -> {
                 Toast.makeText(this, "Click Positive Button", Toast.LENGTH_SHORT).show();
             }).setNegativeButton(getResources().getString(R.string.cancel), (dialog, which) -> {
                 Toast.makeText(this, "Click Negative Button", Toast.LENGTH_SHORT).show();
@@ -74,7 +74,7 @@ public class SampleActivityJava extends AppCompatActivity {
                 }
             }).show();
         } else {
-            builder.show();
+            dialog.show();
         }
     }
 
