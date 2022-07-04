@@ -2,7 +2,6 @@ package com.panshen.gridcolorpicker
 
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import androidx.annotation.FloatRange
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
@@ -28,7 +27,7 @@ object ColorUtils {
         arr.forEach { color ->
             val isColor = color.matches(colorRegex)
             if (!isColor) {
-                Log.e("ColorUtils", "$color is not a color string")
+                LogUtil.e("ColorUtils", "$color is not a color string")
             } else {
                 colors.add(Color.parseColor(color))
             }
