@@ -3,7 +3,6 @@ package com.panshen.gridcolorpicker
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -286,7 +285,7 @@ internal class PaletteView(context: Context, paletteConfig: PickerConfig) : View
      */
     fun checkColor(color: String): Boolean {
         if (color.isEmpty()) {
-            Log.e(TAG, "color can't be empty")
+            LogUtil.e(TAG, "color can't be empty")
             return false
         }
 
