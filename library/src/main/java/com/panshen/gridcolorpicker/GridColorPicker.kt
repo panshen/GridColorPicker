@@ -15,6 +15,8 @@ import androidx.core.view.updateLayoutParams
 import com.panshen.gridcolorpicker.ColorUtils.retrieveColorsFromColorIds
 import com.panshen.gridcolorpicker.ColorUtils.setAlphaComponent
 import com.panshen.gridcolorpicker.model.PickerConfig
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 class GridColorPicker : LinearLayout, OnColorSelectListener, AlphaView.OnAlphaSelectListener {
 
@@ -266,5 +268,14 @@ class GridColorPicker : LinearLayout, OnColorSelectListener, AlphaView.OnAlphaSe
             this.defaultWidthMeasureSpec(parentView = this@GridColorPicker), this.defaultHeightMeasureSpec(parentView = this@GridColorPicker)
         )
     }
-
 }
+
+//region coroutine supports
+suspend fun GridColorPicker.colorChanged() = suspendCoroutine<String> { continuation ->
+    this.onColorChanged = { continuation.resume(it) }
+}
+
+suspend fun GridColorPicker.afterColorChanged() = suspendCoroutine<String> { continuation ->
+    this.afterColorChanged = { continuation.resume(it) }
+}
+//endregion
