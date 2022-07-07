@@ -136,7 +136,7 @@ repositories {
 Add dependency in your module build.gradle:
 ```gradle
 dependencies {
-    implementation 'com.github.panshen:GridColorPicker:1.0.0'
+    implementation 'com.github.panshen:GridColorPicker:1.0.1'
 }
 ```
 
