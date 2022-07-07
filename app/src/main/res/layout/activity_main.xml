@@ -45,11 +45,11 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/center"
-            tools:text="DSL"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClick"/>
+            android:onClick="onClick"
+            tools:text="DSL" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/dialog"
@@ -78,7 +78,7 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="20dp">
 
@@ -92,14 +92,14 @@
 
         <View
             android:id="@+id/colorChanged"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="#EAEAEA" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp">
@@ -114,8 +114,8 @@
 
         <View
             android:id="@+id/afterColorChanged"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="#EAEAEA" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -144,10 +144,10 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/checkColor"
-            android:onClick="onClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:onClick="onClick"
             android:text="@string/confirm" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

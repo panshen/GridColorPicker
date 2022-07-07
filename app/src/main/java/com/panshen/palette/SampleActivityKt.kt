@@ -5,12 +5,14 @@ import android.content.DialogInterface
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout.LayoutParams
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.panshen.gridcolorpicker.GridColorPicker
 import com.panshen.gridcolorpicker.builder.colorPickerDialog
 import com.panshen.gridcolorpicker.builder.colorPickerView
@@ -34,6 +36,11 @@ class MainActivityKt : AppCompatActivity() {
         }
         binding.colorPicker.afterColorChanged = { color ->
             afterColorChanged(color)
+        }
+        lifecycleScope.launchWhenCreated {
+            binding.colorPicker.onColorChangedFlow.collect {
+                Log.d("flow", "color :$it")
+            }
         }
     }
 

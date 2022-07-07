@@ -15,10 +15,11 @@ import androidx.core.view.updateLayoutParams
 import com.panshen.gridcolorpicker.ColorUtils.retrieveColorsFromColorIds
 import com.panshen.gridcolorpicker.ColorUtils.setAlphaComponent
 import com.panshen.gridcolorpicker.model.PickerConfig
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
-class GridColorPicker : LinearLayout, OnColorSelectListener, AlphaView.OnAlphaSelectListener {
+class GridColorPicker : LinearLayout, AlphaView.OnAlphaSelectListener {
 
     private val shadowPadding = 5.dp
     private val shadowRadius = 5.dpf
@@ -38,6 +39,12 @@ class GridColorPicker : LinearLayout, OnColorSelectListener, AlphaView.OnAlphaSe
     var onColorSelectListener: OnColorSelectListener? = null
     var color: String? = null
         private set
+
+    private var _onColorChangedFlow: MutableStateFlow<String>? = null
+    val onColorChangedFlow by lazy {
+        _onColorChangedFlow = MutableStateFlow(color ?: "")
+        _onColorChangedFlow!!.asStateFlow()
+    }
 
     constructor(context: Context, attributes: AttributeSet) : super(context, attributes) {
         val attrs = context.obtainStyledAttributes(attributes, R.styleable.GridColorPicker)
@@ -85,7 +92,6 @@ class GridColorPicker : LinearLayout, OnColorSelectListener, AlphaView.OnAlphaSe
         if (alphaViewLabelColorRes != R.color.alpha_label_color) pickerConfig =
             pickerConfig.copy(alphaViewLabelColorRes = alphaViewLabelColorRes)
 
-
         attrs.recycle()
         correctParams()
         init()
@@ -125,7 +131,7 @@ class GridColorPicker : LinearLayout, OnColorSelectListener, AlphaView.OnAlphaSe
                 LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).also { ii ->
                     ii.gravity = Gravity.CENTER_HORIZONTAL
                 }
-            it.onColorSelectListener = this
+            it.onColorSelectListener = listener
             it.colorBlockCreated = {
                 checkColor(pickerConfig.checkedColor)
             }
@@ -163,6 +169,33 @@ class GridColorPicker : LinearLayout, OnColorSelectListener, AlphaView.OnAlphaSe
             cardPaint.isAntiAlias = true
         }
 
+    }
+
+    private val listener = object : OnColorSelectListener {
+        override fun onColorChanged(color: String) {
+            var alpha = AlphaView.MAX_ALPHA
+            if (this@GridColorPicker::alphaView.isInitialized) {
+                alphaView.color = Color.parseColor(color)
+                alpha = alphaView.alphaValue
+            }
+            val colorWithAlpha = setAlphaComponent(alpha, color)
+            onColorSelectListener?.onColorChanged(colorWithAlpha)
+            onColorChanged?.invoke(colorWithAlpha)
+            _onColorChangedFlow?.update { colorWithAlpha }
+            this@GridColorPicker.color = colorWithAlpha
+        }
+
+        override fun afterColorChanged(color: String) {
+            var alpha = AlphaView.MAX_ALPHA
+            if (this@GridColorPicker::alphaView.isInitialized) {
+                alphaView.color = Color.parseColor(color)
+                alpha = alphaView.alphaValue
+            }
+            val colorWithAlpha = setAlphaComponent(alpha, color)
+            onColorSelectListener?.afterColorChanged(colorWithAlpha)
+            afterColorChanged?.invoke(colorWithAlpha)
+            this@GridColorPicker.color = colorWithAlpha
+        }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -227,30 +260,6 @@ class GridColorPicker : LinearLayout, OnColorSelectListener, AlphaView.OnAlphaSe
         cardPaint.clearShadowLayer()
     }
 
-    override fun onColorChanged(color: String) {
-        var alpha = AlphaView.MAX_ALPHA
-        if (this::alphaView.isInitialized) {
-            alphaView.color = Color.parseColor(color)
-            alpha = alphaView.alphaValue
-        }
-        val colorWithAlpha = setAlphaComponent(alpha, color)
-        onColorSelectListener?.onColorChanged(colorWithAlpha)
-        onColorChanged?.invoke(colorWithAlpha)
-        this.color = colorWithAlpha
-    }
-
-    override fun afterColorChanged(color: String) {
-        var alpha = AlphaView.MAX_ALPHA
-        if (this::alphaView.isInitialized) {
-            alphaView.color = Color.parseColor(color)
-            alpha = alphaView.alphaValue
-        }
-        val colorWithAlpha = setAlphaComponent(alpha, color)
-        onColorSelectListener?.afterColorChanged(colorWithAlpha)
-        afterColorChanged?.invoke(colorWithAlpha)
-        this.color = colorWithAlpha
-    }
-
     override fun onAlphaChanged(color: String) {
         onColorSelectListener?.onColorChanged(color)
         onColorChanged?.invoke(color)
@@ -269,13 +278,3 @@ class GridColorPicker : LinearLayout, OnColorSelectListener, AlphaView.OnAlphaSe
         )
     }
 }
-
-//region coroutine supports
-suspend fun GridColorPicker.colorChanged() = suspendCoroutine<String> { continuation ->
-    this.onColorChanged = { continuation.resume(it) }
-}
-
-suspend fun GridColorPicker.afterColorChanged() = suspendCoroutine<String> { continuation ->
-    this.afterColorChanged = { continuation.resume(it) }
-}
-//endregion
