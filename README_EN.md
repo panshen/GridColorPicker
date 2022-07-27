@@ -1,21 +1,18 @@
 # GridColorPicker
 
 <p align="center"> <img align="center" src="https://raw.githubusercontent.com/panshen/GridColorPicker/main/app/src/main/res/drawable/logo.png" width="80"/></p>
-<p align="center"> <strong>一个安卓端灵活且优雅的颜色选色器</strong> </p>
-
+<p align="center"> <strong>A flexible and beautiful color picker for Android</strong> </p>
 <br>
 <br>
 <p align="center"> <img align="center" src="https://github.com/panshen/GridColorPicker/blob/main/screencapture/view_en.jpg" width="350"/></p>
 
-中文 | [EN](https://github.com/panshen/GridColorPicker/blob/main/README_EN.md) 
-
-用法
+USAGE
 -----
-
+[中文](https://github.com/panshen/GridColorPicker/blob/main/README.md) | ENGLISH
 
 
 ### XML
-使用 xml 声明一个 GridColorPicker，每个 gcp_xxx 属性都是可选的。
+Use xml to declare a GridColorPicker, every gcp_xxx property is optional.
 ```xml 
 <com.panshen.gridcolorpicker.GridColorPicker
     android:id="@+id/colorPicker"
@@ -34,20 +31,20 @@
 ```
 Properties:
 
-| 属性                    | 描述                                                         | 默认值            |
-| :---------------------- | :----------------------------------------------------------- | ----------------- |
-| gcp_row                 | 网格的行数，最小为2                                          | 10                |
-| gcp_colorScheme         | 网格的颜色方案，最少需要定义两个颜色                         | #029FD6...#76BC40 |
-| gcp_selectorColor       | 选择器的颜色资源                                             | #FFFFFF           |
-| gcp_showAlphaView       | 是否显示 AlphaView                                           | true              |
-| gcp_showAlphaViewLabel  | 是否显示 AlphaView 的标签。如果 showAlphaView 为 false，这个属性将被忽略。 | true              |
-| gcp_alphaViewLabelColor | 标签的颜色资源                                               | #000000           |
-| gcp_alphaViewLabelText  | AlphaView标签的文本                                          | Opacity           |
-| gcp_drawCard            | 是否绘制 GridColorPicker 的卡片背景。                        | true              |
-| gcp_cardColor           | 卡片的颜色资源                                               | #FDFDFD           |
+| Propertie              |                   Description                |         Default                                               |
+| ---------------------- | ---------------------------------------------|---------------------------------------------------------------|
+| gcp_row                | The number of rows in the grid, minimal is 2.|                              10                               |
+| gcp_colorScheme        | The color scheme of the grid, minimal number of colors is 2.|         #029FD6...#76BC40                      |
+| gcp_selectorColor      | The color resource of the selector.          |                            #FFFFFF                            |
+| gcp_showAlphaView      | Whether to show the AlphaView.               |                              true                             |
+| gcp_showAlphaViewLabel | Whether to show label of the AlphaView. If showAlphaView is false, this property will be ignored. |   true   |
+| gcp_alphaViewLabelColor| The color resource of the label.             |                            #000000                            |
+| gcp_alphaViewLabelText | The text of the AlphaView label.             |                            Opacity                            |
+| gcp_drawCard           | Whether to draw card background of the GridColorPicker. |                   true                             |
+| gcp_cardColor          | The color resource of the card.              |                            #FDFDFD                            |
 
-### 动态创建颜色选择器
-例如，创建一个有 5 行颜色且 AlphaView 被隐藏的 GridColorPicker：
+### Create GridColorPicker
+For example, create a GridColorPicker that has 5 rows of colors and the AlphaView is hidden:
 
 <p align="center"> <img align="center" src="https://github.com/panshen/GridColorPicker/blob/main/screencapture/row5.jpg" width="350"/></p>
 
@@ -67,8 +64,8 @@ val gridColorPicker = colorPickerView {
           .build();
 ```
 
-### 创建颜色选择器 Dialog
-为了方便使用，你可以创建一个包含 GridColorPicker 的 Dialog:
+### Create GridColorPickerDialog
+For convenience, you are able to create a Dialog which holding a GridColorPicker inside:
 <p align="center"> <img align="center" src="https://github.com/panshen/GridColorPicker/blob/main/screencapture/dialogRow5_en.jpg" width="350"/></p>
 
 #### Kotlin
@@ -94,8 +91,8 @@ AlertDialog dialog = new ColorPickerDialogBuilder(this)
       .alphaViewEnable(false)
       .show();
 ```
-### 其他 
-当颜色改变时获得回调:
+### Other 
+Get callback when color changes:
 
 Kotlin
 ```kotlin
@@ -126,17 +123,17 @@ colorPicker.setOnColorSelectListener(new OnColorSelectListener() {
 });
 ```
 
-## 更多用法请查看 [示例代码](https://github.com/panshen/GridColorPicker/tree/main/app/src/main/java/com/panshen/palette) 。
+## See [sample](https://github.com/panshen/GridColorPicker/tree/main/app/src/main/java/com/panshen/palette) for more usages.
 
-安装
+INSTALL
 -----
-添加 jitpack 地址到项目级 build.gradle:
+Add it in your root build.gradle:
 ```gradle
 repositories {
     maven { url 'https://jitpack.io' }
 }
 ```
-添加项目依赖到模块的 build.gradle:
+Add dependency in your module build.gradle:
 ```gradle
 dependencies {
     implementation 'com.github.panshen:GridColorPicker:1.0.1'
@@ -147,13 +144,13 @@ License
 -------
 
     Copyright (c) 2022. panshen
-    
+
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
-    
+
        http://www.apache.org/licenses/LICENSE-2.0
-    
+
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
