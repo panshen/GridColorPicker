@@ -8,7 +8,7 @@
 
 USAGE
 -----
-
+[中文](https://github.com/panshen/GridColorPicker/blob/main/README.md) | ENGLISH
 
 
 ### XML
